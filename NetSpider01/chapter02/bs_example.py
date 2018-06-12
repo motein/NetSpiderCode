@@ -16,4 +16,3 @@ def scrape(html):
 
 html=urllib.request.urlopen('http://example.webscraping.com/view/United-Kingdom-239').read()
 print(scrape(html))
-    

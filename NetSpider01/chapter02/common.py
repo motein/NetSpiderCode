@@ -16,4 +16,4 @@ def download(url, user_agent=None):
         html=None
     return html
 
-print(download('http://example.webscraping.com'))
+print(download('http://example.webscraping.com').decode('utf-8'))
