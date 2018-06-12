@@ -51,7 +51,6 @@ class Downloader:
         if self.cache:
             try:
                 result=self.cache[url]
-                print('Cache Content:', result)
             except KeyError:
                 # url is not available in cache
                 pass

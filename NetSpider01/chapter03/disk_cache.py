@@ -8,6 +8,7 @@ import re
 import shutil
 import zlib
 from datetime import datetime, timedelta
+import time
 from urllib import parse
 import urllib
 try:
@@ -122,4 +123,5 @@ class DiskCache:
         if os.path.exists(self.cache_dir):
             shutil.rmtree(self.cache_dir)
 
-link_crawler('http://example.webscraping.com/', '(.*?)/(index|view)', cache=DiskCache())
+link_crawler('http://example.webscraping.com/', '/(index|view)', cache=DiskCache())
+               
