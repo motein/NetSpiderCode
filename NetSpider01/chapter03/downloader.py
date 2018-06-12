@@ -1,5 +1,5 @@
 '''
-Created on 2018Äê6ÔÂ11ÈÕ
+Created on Jun 12, 2018
 
 @author: Xor
 '''
@@ -36,7 +36,7 @@ class Throttle:
                 time.sleep(sleep_secs)
         self.domains[domain]=datetime.now()
 
-class Donwloader:
+class Downloader:
     def __init__(self, delay=DEFAULT_DELAY, user_agent=DEFAULT_AGENT, proxies=None, num_retries=DEFAULT_RETRIES, timeout=DEFAULT_TIMEOUT, opener=None, cache=None):
         socket.setdefaulttimeout(timeout)
         self.throttle=Throttle(delay)
@@ -51,6 +51,7 @@ class Donwloader:
         if self.cache:
             try:
                 result=self.cache[url]
+                print('Cache Content:', result)
             except KeyError:
                 # url is not available in cache
                 pass
@@ -63,7 +64,7 @@ class Donwloader:
             self.throttle.wait(url)
             proxy=random.choice(self.proxies) if self.proxies else None
             headers={'User-agent': self.user_agent}
-            result=self.donwload(url, headers, proxy=proxy, num_retries=self.num_retries)
+            result=self.download(url, headers, proxy=proxy, num_retries=self.num_retries)
             if self.cache:
                 # save result to cache
                 self.cache[url]=result
@@ -90,4 +91,4 @@ class Donwloader:
                     return self._get(url, headers, proxy, num_retries-1, data)
             else:
                 code=None
-        return {'html': html, 'code':code}
+        return {'html': html, 'code': code}
