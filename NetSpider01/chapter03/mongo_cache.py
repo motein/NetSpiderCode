@@ -1,7 +1,7 @@
 '''
-Created on Jun 13, 2018
+Created on Jun 14, 2018
 
-@author: Xor
+@author: xiongan2
 '''
 try:
     import cPickle as pickle
@@ -11,7 +11,6 @@ import zlib
 from datetime import datetime, timedelta
 from pymongo import MongoClient
 from bson.binary import Binary
-
 
 class MongoCache:
     """
