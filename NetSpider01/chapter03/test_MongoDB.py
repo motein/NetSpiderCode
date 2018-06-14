@@ -11,7 +11,7 @@ db=client.cache
 url='https://www.baidu.com'
 html='...'
 new_html='New HTML'
-#db.webpage.insert({'url': url, 'html': html})
+db.webpage.insert({'url': url, 'html': html})
 print(db.webpage.find_one({'url':url}))
 id=db.webpage.find_one({'url':url})['_id']
 print(db.webpage.find())
