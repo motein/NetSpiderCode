@@ -5,7 +5,7 @@ Created on Jun 14, 2018
 '''
 import csv
 from zipfile import ZipFile
-from io import StringIO
+from io import BytesIO, TextIOWrapper
 from chapter03.mongo_cache import MongoCache
 
 class AlexaCallback:
@@ -17,9 +17,12 @@ class AlexaCallback:
         if url == self.seed_url:
             urls = []
             cache = MongoCache()
-            with ZipFile(StringIO(html)) as zf:
+            with ZipFile(BytesIO(html)) as zf:
                 csv_filename = zf.namelist()[0]
-                for _, website in csv.reader(zf.open(csv_filename)):
+                mess=zf.open(csv_filename, 'r')
+                mess=TextIOWrapper(mess)
+                for _, website in csv.reader(mess):
+                    print(website)
                     if 'http://' + website not in cache:
                         urls.append('http://' + website)
                         if len(urls) == self.max_urls:
