@@ -8,7 +8,8 @@ from zipfile import ZipFile
 from io import BytesIO, TextIOWrapper
 from chapter03.mongo_cache import MongoCache
 
-class AlexaCallback:
+# return all links in a list
+class AlexaCallback: 
     def __init__(self, max_urls=1000):
         self.max_urls = max_urls
         self.seed_url = 'http://s3.amazonaws.com/alexa-static/top-1m.csv.zip'

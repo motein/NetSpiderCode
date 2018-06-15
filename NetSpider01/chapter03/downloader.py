@@ -8,7 +8,7 @@ import socket
 import random
 import urllib
 from datetime import datetime, timedelta
-from urllib import request, response, parse
+from urllib import request, response, parse, error
 
 
 DEFAULT_AGENT='wssp'
@@ -80,7 +80,7 @@ class Downloader:
             response=opener.open(request)
             html=response.read()
             code=response.code
-        except Exception as e:
+        except (error.HTTPError, Exception) as e:
             print('Download error:', str(e))
             html=''
             if hasattr(e, 'code'):
