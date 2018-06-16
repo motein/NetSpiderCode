@@ -8,7 +8,6 @@ import urllib
 from urllib import parse
 import threading
 import multiprocessing
-from chapter03.mongo_cache import MongoCache
 from chapter04.mongo_queue import MongoQueue
 from chapter03.downloader import Downloader
 
