@@ -9,6 +9,7 @@ from PySide2.QtWidgets import QApplication, QLabel, QMessageBox, QPushButton, QD
 from PySide2.QtQuick import QQuickView
 from PySide2.QtCore import QUrl
 from PySide2 import QtCore, QtWidgets, QtGui
+from PySide2.QtWebEngineWidgets import QWebEngineView
 
 def hello_label():
     app = QApplication([])
@@ -119,12 +120,14 @@ class Form(QDialog):
         print("Hello %s" % self.edit.text())
 
 def test_form():
-    app = QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     # Create and show the form
     form = Form()
     form.show()
     # Run the main Qt loop
     sys.exit(app.exec_())
+    
+
                                 
 if __name__ == "__main__":
     #hello_label2()

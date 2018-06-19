@@ -7,15 +7,16 @@ Created on Jun 19, 2018
 import re
 import csv
 import time
+import sys
 
 try: 
     from PySide2.QtWidgets import QApplication
     from PySide2.QtCore import QUrl, QEventLoop, QTimer
     from PySide2.QtWebEngineWidgets import QWebEngineView
 except ImportError:
-    from PyQt4.QtGui import QApplication
-    from PyQt4.QtCore import QUrl, QEventLoop, QTimer
-    from PyQt4.QtWebKit import QWebEngineView
+    from PyQt5.QtWidgets import QApplication
+    from PyQt5.QtCore import QUrl, QEventLoop, QTimer
+    from PyQt5.QtWebEngineWidgets import QWebEngineView
 
 class BrowserRender(QWebEngineView):  
     def __init__(self, display=True):
@@ -85,6 +86,7 @@ def main():
     br.attr('#search_term', 'value', '.')
     br.text('#page_size option:checked', '1000')
     br.click('#search')
+    
 
     elements = br.wait_load('#results a')
     writer = csv.writer(open('countries.csv', 'w'))
