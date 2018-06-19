@@ -29,12 +29,15 @@ def direct_download_ajax():
 def search1():
     template_url = 'http://example.webscraping.com/ajax/search.json?page={}&page_size=10&search_term={}'
     countries = set()
-    download = Downloader(MongoCache())
+    download = Downloader(cache=MongoCache())
 
     for letter in string.ascii_lowercase:
         page = 0
+        
         while True:
-            html = download(template_url.format(page, letter))
+            url=template_url.format(page, letter)
+            print("URL: ", url)
+            html = download(url)
             try:
                 ajax = json.loads(html)
             except ValueError as e:
@@ -57,10 +60,10 @@ def search2():
     ajax = json.loads(html)
     for record in ajax['records']:
         writer.writerow([record['country']])
-    
+  
 if __name__ == '__main__':
     #fail_search()
     #direct_download_ajax()
-    search2()
+    search1()
 else:
     print(__name__)
