@@ -66,6 +66,7 @@ def download5(url, user_agent='wswp', proxy=None, num_retries=2):
                 return download4(url, user_agent, proxy, num_retries-1) # recursively retry 5xx HTTP errors
     return html
 
-#print(builtwith.parse('http://example.webscraping.com'))
-#print(whois.whois('appspot.com'))
-print(download3('http://httpstat.us/500'))
+if __name__ == '__main__':
+    #print(builtwith.parse('http://example.webscraping.com'))
+    #print(whois.whois('appspot.com'))
+    print(download3('http://httpstat.us/500'))

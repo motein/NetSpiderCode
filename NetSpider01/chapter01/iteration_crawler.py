@@ -40,5 +40,6 @@ def iteration2():
             # success - can scrape the result
             # ...
             num_errors=0 # recount again
-        
-iteration2()
+            
+if __name__ == '__main__':
+    iteration2()

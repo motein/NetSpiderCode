@@ -122,6 +122,6 @@ class DiskCache:
         """
         if os.path.exists(self.cache_dir):
             shutil.rmtree(self.cache_dir)
-
-link_crawler('http://example.webscraping.com/', '/(index|view)', cache=DiskCache())
+if __name__ == '__main__':
+    link_crawler('http://example.webscraping.com/', '/(index|view)', cache=DiskCache())
                

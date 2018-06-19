@@ -64,5 +64,6 @@ def main():
     writer.writerow(header)
     for row in zip(*[times[scraper] for scraper in header]):
         writer.writerow(row)
-    
-main()
+
+if __name__ == '__main__':    
+    main()

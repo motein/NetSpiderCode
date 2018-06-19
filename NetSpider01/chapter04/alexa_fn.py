@@ -51,4 +51,5 @@ def alexa2():
             urls.append('http://' + website)
     return urls
 
-print(len(alexa2()))
+if __name__ == '__main__':
+    print(len(alexa2()))

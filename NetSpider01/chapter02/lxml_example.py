@@ -5,7 +5,6 @@ Created on Jun 10, 2018
 '''
 import urllib.request
 import lxml.html
-import lxml.cssselect
 
 def scrape(html):
     tree=lxml.html.fromstring(html)
@@ -14,5 +13,6 @@ def scrape(html):
     area=td.text_content()
     return area
 
-html=urllib.request.urlopen('http://example.webscraping.com/view/United-Kingdom-239').read()
-print(scrape(html))
+if __name__ == '__main__':
+    html=urllib.request.urlopen('http://example.webscraping.com/view/United-Kingdom-239').read()
+    print(scrape(html))

@@ -22,5 +22,6 @@ def crawl_sitemap(url):
         sleep(1) # sleep or too many requests
         # scrape html here
         # ...
-        
-crawl_sitemap('http://example.webscraping.com/sitemap.xml')
+
+if __name__ == '__main__':        
+    crawl_sitemap('http://example.webscraping.com/sitemap.xml')

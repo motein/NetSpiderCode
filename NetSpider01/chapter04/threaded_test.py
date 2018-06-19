@@ -13,6 +13,7 @@ def main(max_threads):
     cache = MongoCache()
     #cache.clear()
     threaded_crawler(scrape_callback.seed_url, scrape_callback=scrape_callback, cache=cache, max_threads=max_threads, timeout=10)
-    
-max_threads = int(20)
-main(max_threads)
+
+if __name__ == '__main__':   
+    max_threads = int(20)
+    main(max_threads)

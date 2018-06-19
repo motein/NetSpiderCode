@@ -16,4 +16,5 @@ def download(url, user_agent=None):
         html=None
     return html
 
-print(download('http://example.webscraping.com').decode('utf-8'))
+if __name__ == '__main__':
+    print(download('http://example.webscraping.com').decode('utf-8'))

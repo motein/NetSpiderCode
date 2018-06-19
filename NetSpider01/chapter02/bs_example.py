@@ -14,5 +14,6 @@ def scrape(html):
     area=td.text # extract the area contents from this tag
     return area
 
-html=urllib.request.urlopen('http://example.webscraping.com/view/United-Kingdom-239').read()
-print(scrape(html))
+if __name__ == '__main__':
+    html=urllib.request.urlopen('http://example.webscraping.com/view/United-Kingdom-239').read()
+    print(scrape(html))

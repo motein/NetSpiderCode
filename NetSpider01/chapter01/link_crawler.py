@@ -170,7 +170,7 @@ def get_links(html):
     # list of all links from the web page
     return webpage_regex.findall(html)
 
-
-#link_crawler2('http://example.webscraping.com', '(.*?)/(index|view)')
-link_crawler('http://example.webscraping.com', '(.*?)/(index|view)', delay=0, num_retries=1, user_agent='BadCrawler')
-#link_crawler('http://example.webscraping.com', '(.*?)/(index|view)', delay=0, num_retries=1, max_depth=1, user_agent='GoodCrawler')
+if __name__ == '__main__':
+    #link_crawler2('http://example.webscraping.com', '(.*?)/(index|view)')
+    link_crawler('http://example.webscraping.com', '(.*?)/(index|view)', delay=0, num_retries=1, user_agent='BadCrawler')
+    #link_crawler('http://example.webscraping.com', '(.*?)/(index|view)', delay=0, num_retries=1, max_depth=1, user_agent='GoodCrawler')

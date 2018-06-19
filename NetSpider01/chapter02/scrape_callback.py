@@ -34,6 +34,7 @@ class ScrapeCallback:
             for field in self.fields:
                 row.append(tree.cssselect('table > tr#places_{}__row > td.w2p_fw'.format(field))[0].text_content())
             self.writer.writerow(row)
-        
-#link_crawler('http://example.webscraping.com/', '(.*?)/(index|view)', scrape_callback=scrape_callback)
-link_crawler('http://example.webscraping.com/', '(.*?)/(index|view)', scrape_callback=ScrapeCallback())
+            
+if __name__ == '__main__':        
+    #link_crawler('http://example.webscraping.com/', '(.*?)/(index|view)', scrape_callback=scrape_callback)
+    link_crawler('http://example.webscraping.com/', '(.*?)/(index|view)', scrape_callback=ScrapeCallback())

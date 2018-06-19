@@ -12,4 +12,5 @@ def test_again(x):
     time.sleep(x)
     link_crawler('http://example.webscraping.com', '(.*?)/(index|view)', delay=0, num_retries=1, max_depth=1, user_agent='GoodCrawler')
 
-test_again(1)
+if __name__ == '__main__':
+    test_again(1)
