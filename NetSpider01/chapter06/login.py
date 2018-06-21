@@ -16,7 +16,7 @@ from http import cookiejar
 LOGIN_URL = 'http://example.webscraping.com/places/default/user/login'
 LOGIN_EMAIL = 'example@webscraping.com'
 LOGIN_PASSWORD = 'example'
-COUNTRY_URL = 'http://example.webscraping.com/edit/United-Kingdom-239'
+COUNTRY_URL = 'http://example.webscraping.com'
 
 def login_basic():
     """fails because not using formkey
@@ -61,6 +61,7 @@ def login_firefox():
     """load cookies from firefox
     """
     session_filename = find_ff_sessions()
+    print(session_filename)
     cj = load_ff_sessions(session_filename)
     opener = request.build_opener(request.HTTPCookieProcessor(cj))
     html = opener.open(COUNTRY_URL).read()
@@ -86,7 +87,8 @@ def load_ff_sessions(session_filename):
     cj = cookiejar.CookieJar()
     if os.path.exists(session_filename):  
         try: 
-            json_data = json.loads(open(session_filename, 'rb').read())
+            f = open(session_filename, 'rb').read()
+            json_data = json.loads(f)
         except ValueError as e:
             print('Error parsing session JSON:', str(e))
         else:
@@ -106,21 +108,22 @@ def load_ff_sessions(session_filename):
 
 
 def find_ff_sessions():
-    paths = [
-        '~/.mozilla/firefox/*.default',
-        '~/Library/Application Support/Firefox/Profiles/*.default',
-        '%APPDATA%/Roaming/Mozilla/Firefox/Profiles/*.default'
-    ]
-    for path in paths:
-        filename = os.path.join(path, 'sessionstore.js')
-        matches = glob.glob(os.path.expanduser(filename))
-        if matches:
-            return matches[0]
+    path = 'C:/Users/xiongan2/AppData/Roaming/Mozilla/Firefox/Profiles/ceo5bgwa.default/'
+    filename = os.path.join(path, 'sessionstore.jsonlz4')
+    print('Filename', filename)
+    user = os.path.expanduser(filename)
+    print('User->', user)
+    matches = glob.glob(user)
+    print(matches)
+    if matches:
+        print("Match")
+        return matches[0]
 
     
 if __name__ == '__main__':
     #login_basic()
     #check_name()
     #login_formkey()
-    login_cookies()
+    #login_cookies()
+    login_firefox()
 
